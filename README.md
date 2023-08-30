@@ -14,8 +14,6 @@ Prerequisites: Make sure you have the required programming language installed, a
 
 Cloning the Repository: Use the command below to clone this repository to your local machine:
 
-bash
-Copy code
 git clone https://github.com/thiagocamerato757/Jogo-da-Senha.git .Running the Game: Navigate to the directory where the repository was cloned and execute the main game file.
 
 Contribution
