@@ -16,7 +16,7 @@ Cloning the Repository: Use the command below to clone this repository to your l
 
 bash
 Copy code
-git clone https://github.com/your-user/mastermind-game.git
+git clone https://github.com/thiagocamerato757/Jogo-da-Senha.git
 Running the Game: Navigate to the directory where the repository was cloned and execute the main game file.
 
 Contribution
