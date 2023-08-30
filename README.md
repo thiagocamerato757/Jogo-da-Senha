@@ -16,8 +16,7 @@ Cloning the Repository: Use the command below to clone this repository to your l
 
 bash
 Copy code
-git clone https://github.com/thiagocamerato757/Jogo-da-Senha.git
-  Running the Game: Navigate to the directory where the repository was cloned and execute the main game file.
+git clone https://github.com/thiagocamerato757/Jogo-da-Senha.git .Running the Game: Navigate to the directory where the repository was cloned and execute the main game file.
 
 Contribution
 If you wish to contribute to this project, feel free to fork this repository. You can add features such as a graphical interface, difficulty options, or any other enhancements you find interesting. Be sure to test your changes before submitting a pull request.
