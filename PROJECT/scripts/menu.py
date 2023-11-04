@@ -1,7 +1,7 @@
 import tkinter as tk
 import ctypes
 import unittest
-
+#TODO: implementar botoes de ir para a partida e de ir para o tutorial 
 def criar_menu():
     menu = tk.Tk()
     myappId = "Jogo da Senha"

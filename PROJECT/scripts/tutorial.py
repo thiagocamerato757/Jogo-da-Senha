@@ -1,7 +1,7 @@
 import tkinter as tk
 import ctypes
 import unittest
-
+#TODO: melhorar a explicacao do jogo, incluir imagens(opcional)
 def criar_tutorial():
     def pular_tutorial():
         tutorial.destroy()
