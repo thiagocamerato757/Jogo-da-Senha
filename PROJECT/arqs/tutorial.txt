@@ -1,0 +1,25 @@
+O jogo consiste em uma série de rodadas, cada uma com uma senha diferente. A senha é uma sequência de quatro cores,
+
+escolhidas aleatoriamente entre vermelho, verde, azul e amarelo. As cores podem se repetir na senha.
+
+Em cada rodada, você receberá uma pista sobre a senha, com as cores, a ordem, o significado ou a origem da senha.
+
+Por exemplo, se a senha for “verde, vermelho, azul, amarelo”, Para fazer sua suposição, você deve clicar nas cores da barra inferior.
+
+Depois, clique no botão “enviar” para enviar sua suposição.
+
+O jogo informará quantas cores estão corretas e em suas posições corretas na senha, usando os seguintes símbolos:
+
+    -Um círculo preto significa que uma cor está correta e na posição correta.
+
+    -Um círculo branco significa que uma cor está correta, mas na posição errada.
+
+    -Um círculo cinza significa que uma cor está errada.
+
+Por exemplo, se a senha for “verde, vermelho, azul, amarelo” e sua suposição for “vermelho, verde, amarelo, azul”,
+
+o feedback será “um círculo preto e dois círculos brancos”. Você tem um número limitado de tentativas para adivinhar a senha.
+
+Se não adivinhar a senha dentro desse limite, a rodada acabará e você perderá a partida. Se adivinhar a senha, a rodada acabará e você ganhará 
+
+a partida.
