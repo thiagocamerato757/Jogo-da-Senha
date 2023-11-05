@@ -2,8 +2,37 @@ import unittest
 from unittest.mock import MagicMock, patch
 from tutorial import criar_tutorial
 from menu import criar_menu
+from senha import gerar_senha
+
 
 #TODO: colocar os demais testes aqui
+
+class TestGerarCombinacaoCores(unittest.TestCase):
+    def test_gerar_senha(self):
+        # Caso de teste 1: Verificar se o número de cores gerado é igual ao número especificado
+        num_cores = 6
+        cores_disponiveis = ["vermelho", "verde", "azul", "amarelo", "roxo", "laranja"]
+        combinacao = gerar_senha(num_cores, cores_disponiveis)
+        self.assertEqual(len(combinacao), num_cores)
+
+        # Caso de teste 2: Verificar se todas as cores na combinação são únicas
+        num_cores = 3
+        cores_disponiveis = ["vermelho", "verde", "azul"]
+        combinacao = gerar_senha(num_cores, cores_disponiveis)
+        self.assertEqual(len(combinacao), len(set(combinacao)))
+
+        # Caso de teste 3: Verificar se a função lida corretamente com 0 cores
+        num_cores = 0
+        cores_disponiveis = ["vermelho", "verde", "azul"]
+        combinacao = gerar_senha(num_cores, cores_disponiveis)
+        self.assertEqual(len(combinacao), 0)
+
+        # Caso de teste 4: Verificar se a função lida corretamente com um grande número de cores
+        num_cores = 1000
+        cores_disponiveis = ["vermelho", "verde", "azul"] * 1000  # Uma lista grande de cores
+        combinacao = gerar_senha(num_cores, cores_disponiveis)
+        self.assertEqual(len(combinacao), num_cores)
+
 def pular_tutorial():
     janela.destroy()  # Fecha a janela de tutorial quando chamada
 
