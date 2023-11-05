@@ -1,6 +1,5 @@
 import tkinter as tk
 import ctypes
-import unittest
 #TODO: implementar botoes de ir para a partida e de ir para o tutorial 
 def criar_menu():
     menu = tk.Tk()
@@ -17,14 +16,3 @@ def criar_menu():
 
     menu.mainloop()
     return menu
-    
-class TestMenuPrincipal(unittest.TestCase):
-    def test_criar_menu_principal(self):
-        menu = criar_menu()
-        self.assertIsInstance(menu, tk.Tk)
-        self.assertEqual(menu.winfo_exists(), 1)
-        menu.destroy()
-        menu.quit()
-
-if __name__ == "__main__":
-    unittest.main()

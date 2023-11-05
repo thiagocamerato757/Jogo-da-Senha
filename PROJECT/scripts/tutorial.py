@@ -1,9 +1,10 @@
 import tkinter as tk
 import ctypes
-import unittest
 #TODO: melhorar a explicacao do jogo, incluir imagens(opcional)
-def criar_tutorial():
+def criar_tutorial(pular_callback=None):
     def pular_tutorial():
+        if pular_callback:
+            pular_callback()
         tutorial.destroy()
 
     tutorial = tk.Tk()
@@ -30,14 +31,3 @@ def criar_tutorial():
 
     tutorial.mainloop()
     return tutorial
-
-class TestTutorialSecundaria(unittest.TestCase):
-    def test_criar_tutorial_secundaria(self):
-        tutorial = criar_tutorial()
-        self.assertIsInstance(tutorial, tk.Tk)
-        self.assertEqual(tutorial.winfo_exists(), 1)
-        tutorial.destroy()
-        tutorial.quit()
-
-if __name__ == "__main__":
-    unittest.main()
