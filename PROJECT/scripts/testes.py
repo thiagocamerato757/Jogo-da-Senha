@@ -53,7 +53,27 @@ class TestMenuPrincipal(unittest.TestCase):
         criar_menu()
 
         mock_tk.assert_called()
-        mock_label.assert_called_with(mock_tk_instance, text="Jogo da Senha", font=("Times New Roman", 60), fg="#00FFFF", bg="#000315")
+        mock_label.assert_called_with(mock_tk_instance, text="Jogo da Senha", font=("Times New Roman", 60), fg="#00FFFF", bg="#000315")]
+
+class TestBotoes(unittest.TestCase):
+    def test_botao_cor_clicado(self):
+        #testa se a cor é adicionada corretamente à tentativa atual
+        tentativa_atual = []
+        cor = "red"
+        botao_cor_clicado(cor)
+        self.assertEqual(tentativa_atual, [cor])
+
+    def test_deleta_cor(self):
+        #testa se a última cor da tentativa atual é removida corretamente
+        tentativa_atual = ["red", "blue", "green"]
+        deletar_cor()
+        self.assertEqual(tentativa_atual, ["red", "blue"])
+    
+    def test_resetar_sequencia(self):
+        #testa se a tentativa autal é resetada corretamente
+        tentativa_atual = ["red", "blue", "green"]
+        resetar_sequencia()
+        self.assertEqual(tentativa_atual, [])
 
 if __name__ == "__main__":
     unittest.main()
