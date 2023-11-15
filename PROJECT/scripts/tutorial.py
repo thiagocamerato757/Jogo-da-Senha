@@ -26,7 +26,7 @@ def criar_tutorial(pular_callback=None):
     texto_tutorial.pack(fill="both", expand=True)
 
     # Crie um botão "Pular Tutorial" para fechar a janela
-    botao_pular = tk.Button(tutorial, text="Pular Tutorial", command=pular_tutorial, height=2, width=20)
+    botao_pular = tk.Button(tutorial, text="Sair do Tutorial", command=pular_tutorial, height=2, width=20)
     botao_pular.pack(pady=50)
 
     tutorial.mainloop()

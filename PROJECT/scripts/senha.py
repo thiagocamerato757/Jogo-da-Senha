@@ -8,4 +8,3 @@ def gerar_senha(num_cores, cores_disponiveis):
     combinacao_cores = np.random.choice(cores_disponiveis, num_cores, replace=False)
 
     return combinacao_cores
-
