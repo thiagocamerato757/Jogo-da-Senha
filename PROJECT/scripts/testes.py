@@ -3,6 +3,8 @@ from unittest.mock import MagicMock, patch
 from tutorial import criar_tutorial
 from menu import criar_menu
 from senha import gerar_senha
+from botao import botao_cor_clicado,deletar_cor,resetar_sequencia
+
 
 
 #TODO: colocar os demais testes aqui
@@ -53,27 +55,29 @@ class TestMenuPrincipal(unittest.TestCase):
         criar_menu()
 
         mock_tk.assert_called()
-        mock_label.assert_called_with(mock_tk_instance, text="Jogo da Senha", font=("Times New Roman", 60), fg="#00FFFF", bg="#000315")]
+        mock_label.assert_called_with(mock_tk_instance, text="Jogo da Senha", font=("Times New Roman", 60), fg="#00FFFF", bg="#000315")
 
 class TestBotoes(unittest.TestCase):
+    def setUp(self):
+        self.tentativa_atual = []
+
     def test_botao_cor_clicado(self):
-        #testa se a cor é adicionada corretamente à tentativa atual
-        tentativa_atual = []
+        # Testa se a cor é adicionada corretamente à tentativa atual
         cor = "red"
-        botao_cor_clicado(cor)
-        self.assertEqual(tentativa_atual, [cor])
+        botao_cor_clicado(cor, self.tentativa_atual)
+        self.assertEqual(self.tentativa_atual, [cor])
 
     def test_deleta_cor(self):
-        #testa se a última cor da tentativa atual é removida corretamente
-        tentativa_atual = ["red", "blue", "green"]
-        deletar_cor()
-        self.assertEqual(tentativa_atual, ["red", "blue"])
-    
+        # Testa se a última cor da tentativa atual é removida corretamente
+        self.tentativa_atual = ["red", "blue", "green"]
+        deletar_cor(self.tentativa_atual)
+        self.assertEqual(self.tentativa_atual, ["red", "blue"])
+
     def test_resetar_sequencia(self):
-        #testa se a tentativa autal é resetada corretamente
-        tentativa_atual = ["red", "blue", "green"]
-        resetar_sequencia()
-        self.assertEqual(tentativa_atual, [])
+        # Testa se a tentativa atual é resetada corretamente
+        self.tentativa_atual = ["red", "blue", "green"]
+        resetar_sequencia(self.tentativa_atual)
+        self.assertEqual(self.tentativa_atual, [])
 
 if __name__ == "__main__":
     unittest.main()
