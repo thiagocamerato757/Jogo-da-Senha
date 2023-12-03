@@ -1,6 +1,4 @@
 import tkinter as tk
-import ctypes
-#TODO: melhorar a explicacao do jogo, incluir imagens(opcional)
 def criar_tutorial(pular_callback=None):
     def pular_tutorial():
         if pular_callback:
@@ -8,8 +6,6 @@ def criar_tutorial(pular_callback=None):
         tutorial.destroy()
 
     tutorial = tk.Tk()
-    myappId = "Jogo da Senha"
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappId)
     tutorial.title("Jogo da Senha")
     tutorial.iconbitmap("PROJECT/icon/window_icon.ico")
     tutorial.resizable(True, True)

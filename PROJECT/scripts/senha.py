@@ -7,22 +7,29 @@ def gerar_senha(num_cores, cores_disponiveis):
     # Escolha aleatoriamente 'num_cores' cores da lista
     combinacao_cores = np.random.choice(cores_disponiveis, num_cores, replace=False)
 
-    return combinacao_cores
-#Todo: incluir esssa funcao na partida 
+    return list(combinacao_cores) 
 def proximidade(tentativa, senha):
     resultado = []
-    i = 0
-    while i < len(tentativa):
+    tentativa_copia = list(tentativa)  # Cópia da tentativa
+    senha_copia = list(senha)          # Cópia da senha
+
+    # Primeira iteração para identificar círculos brancos
+    for i in range(len(tentativa)):
         if tentativa[i] == senha[i]:
-            del tentativa[i]
-            del senha[i]
+            tentativa_copia[i] = None
+            senha_copia[i] = None
             resultado.append("white")
-        i += 1
-    for el in tentativa:
-        if el in senha:
-            senha.remove(el)
+
+    # Segunda iteração para identificar círculos cinzas
+    for i in range(len(tentativa_copia)):
+        if tentativa_copia[i] is not None and tentativa_copia[i] in senha_copia:
+            senha_copia.remove(tentativa_copia[i])
             resultado.append("grey")
-    i = 0
-    while len(resultado) < 4:
-        resultado.append("black")
+
+    # Terceira iteração para identificar círculos pretos
+    for i in range(len(tentativa)):
+        if tentativa[i] != senha[i]:
+            resultado.append("black")
+
     return resultado
+

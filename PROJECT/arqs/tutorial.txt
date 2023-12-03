@@ -16,6 +16,8 @@ O jogo informará quantas cores estão corretas e em suas posições corretas na
 
     -Um círculo cinza significa que uma cor está correta, mas na posição errada.
 
+   #OBS: esses símbolos não revelam a posição de cores certas,erradas,ou meio-certas, o jogador é que deve solucionar o mistério e descobrir de que cores estão certas ou não.
+
 Por exemplo, se a senha for “verde, vermelho, azul, amarelo” e sua suposição for “vermelho, verde, amarelo, azul”,
 
 o feedback será “4 círculos cinzas”. Você tem um número limitado de tentativas para adivinhar a senha.
