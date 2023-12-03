@@ -1,5 +1,5 @@
 import numpy as np
-
+from Lista_Generica import adicionaElementoLista
 def gerar_senha(num_cores, cores_disponiveis):
     if num_cores > len(cores_disponiveis):
         num_cores = len(cores_disponiveis)
@@ -10,26 +10,30 @@ def gerar_senha(num_cores, cores_disponiveis):
     return list(combinacao_cores) 
 def proximidade(tentativa, senha):
     resultado = []
-    tentativa_copia = list(tentativa)  # Cópia da tentativa
-    senha_copia = list(senha)          # Cópia da senha
+
+    # Cópias das listas
+    tentativa_copia = list(tentativa)
+    senha_copia = list(senha)
 
     # Primeira iteração para identificar círculos brancos
     for i in range(len(tentativa)):
         if tentativa[i] == senha[i]:
-            tentativa_copia[i] = None
-            senha_copia[i] = None
-            resultado.append("white")
+            adicionaElementoLista(resultado, "white")
 
     # Segunda iteração para identificar círculos cinzas
     for i in range(len(tentativa_copia)):
         if tentativa_copia[i] is not None and tentativa_copia[i] in senha_copia:
             senha_copia.remove(tentativa_copia[i])
-            resultado.append("grey")
+            adicionaElementoLista(resultado, "grey")
 
     # Terceira iteração para identificar círculos pretos
     for i in range(len(tentativa)):
         if tentativa[i] != senha[i]:
-            resultado.append("black")
+            adicionaElementoLista(resultado, "black")
+
+    # Garante que a lista de resultado tenha o tamanho correto (4 elementos)
+    while len(resultado) < 4:
+        adicionaElementoLista(resultado, "black")
 
     return resultado
 

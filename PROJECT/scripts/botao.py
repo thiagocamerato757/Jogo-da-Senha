@@ -61,7 +61,7 @@ def verificar_sequencia():
 
 
 def reiniciar_jogo():
-    global sequencia_correta, tentativa_atual, tentativas_anteriores, historico_rectangles
+    global sequencia_correta, tentativa_atual, tentativas_anteriores, historico_rectangles, tentativas_restantes
     sequencia_correta = gerar_senha(NUM_CORES_SENHA, cores_disponiveis)
     tentativa_atual = []
     tentativas_restantes = 7
@@ -70,6 +70,7 @@ def reiniciar_jogo():
     chosen_colors_canvas.delete("all")
     historico_canvas.delete("all")
     tentativas_label.config(text=f"Tentativas restantes: {tentativas_restantes}")
+
 
 
 def update_chosen_colors_canvas():
