@@ -15,6 +15,9 @@ def criar_menu():
     iniciar_jogo_button = tk.Button(menu, bg="#000315", fg="white", text="Iniciar Jogo", command=lambda: iniciar_jogo(menu), width=15, font=("Times New Roman", 20))
     iniciar_jogo_button.pack(pady=30)
 
+    tutorial_button = tk.Button(menu, bg="#000315", fg="white", text="Tutorial", command=lambda: criar_tutorial(), width=15, font=("Times New Roman", 20))
+    tutorial_button.pack(pady=30)
+
     menu.mainloop()
     return menu
 
