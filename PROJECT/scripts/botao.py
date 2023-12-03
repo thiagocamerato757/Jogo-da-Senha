@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from senha import gerar_senha
+from senha import gerar_senha, proximidade
 
 NUM_CORES_SENHA = 4
 cores_disponiveis = ["red", "green", "blue", "yellow"][:NUM_CORES_SENHA]
@@ -83,16 +83,28 @@ def update_chosen_colors_canvas():
 
 def update_historico_canvas():
     historico_canvas.delete("all")
+    
+    tamanho_circulo = 30  # Tamanho do círculo para exibir as cores de feedback
+    espacamento = 5  # Espaçamento entre os círculos
+
     for i, tentativa in enumerate(historico_rectangles):
         for j, cor in enumerate(tentativa):
-            x1 = j*40
-            y1 = i*40
-            x2 = (j+1)*40
-            y2 = (i+1)*40
-            historico_canvas.create_rectangle(x1,y1,x2,y2, fill=cor, outline=cor)
-    #botar as dicas aqui
-       
+            x1 = j * 40
+            y1 = i * 40
+            x2 = (j + 1) * 40
+            y2 = (i + 1) * 40
+            historico_canvas.create_rectangle(x1, y1, x2, y2, fill=cor, outline=cor)
 
+        # Adicione as dicas utilizando a função proximidade
+        dicas = proximidade(tentativa, sequencia_correta)
+        for k, dica_cor in enumerate(dicas):
+            x_centro = (NUM_CORES_SENHA + k) * 40 + tamanho_circulo / 2 + espacamento
+            y_centro = i * 40 + tamanho_circulo / 2
+            historico_canvas.create_oval(
+                x_centro - tamanho_circulo / 2, y_centro - tamanho_circulo / 2,
+                x_centro + tamanho_circulo / 2, y_centro + tamanho_circulo / 2,
+                fill=dica_cor, outline=dica_cor
+            )
 def iniciar_jogo(menu):
     global sequencia_correta, tentativa_atual, tentativas_restantes, tentativas_anteriores, chosen_colors_canvas, tentativas_label, historico_canvas
     
@@ -113,7 +125,7 @@ def iniciar_jogo(menu):
     chosen_colors_canvas.pack(side=tk.TOP)
 
     # historico com espaço para botar as dicas
-    historico_canvas = tk.Canvas(root, bg="#000315", width=NUM_CORES_SENHA*60, height=tentativas_restantes*40)
+    historico_canvas = tk.Canvas(root, bg="#000315", width=NUM_CORES_SENHA*80, height=tentativas_restantes*40)
     historico_canvas.pack(side=tk.TOP)
 
     tentativas_label = tk.Label(root, bg="#000315", fg='white', text="Tentativas restantes: 7")

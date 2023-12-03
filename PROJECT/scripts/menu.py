@@ -1,11 +1,8 @@
 import tkinter as tk
-import ctypes
 from botao import iniciar_jogo
 #TODO: implementar botao para ir no tutorial 
 def criar_menu():
     menu = tk.Tk()
-    myappId = "Jogo da Senha"
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappId)
     menu.title("Jogo da Senha")
     menu.iconbitmap("PROJECT/icon/window_icon.ico")
     menu.resizable(True, True)
