@@ -72,7 +72,6 @@ def reiniciar_jogo():
     tentativas_label.config(text=f"Tentativas restantes: {tentativas_restantes}")
 
 
-
 def update_chosen_colors_canvas():
     chosen_colors_canvas.delete("all")
     for i, cor in enumerate(tentativa_atual):
@@ -106,47 +105,52 @@ def update_historico_canvas():
                 x_centro + tamanho_circulo / 2, y_centro + tamanho_circulo / 2,
                 fill=dica_cor, outline=dica_cor
             )
-def iniciar_jogo(menu):
+
+def sair_partida(root):
+        root.destroy()
+
+def iniciar_jogo():
     global sequencia_correta, tentativa_atual, tentativas_restantes, tentativas_anteriores, chosen_colors_canvas, tentativas_label, historico_canvas
-    
-    # Feche a janela do menu antes de abrir a do jogo
-    menu.destroy()
 
     root = tk.Tk()
     root.title("Jogo do Senha")
+    root.iconbitmap("PROJECT/icon/window_icon.ico")
 
     root.resizable(True, True)
-    root.geometry("750x500")
-    root.configure(background="#000315")
+    root.geometry("750x600")
+    root.configure(background="#7D5B8C")
 
-    menu_text = tk.Label(root, text="Jogo da Senha", font=("Times New Roman", 30), fg="#00FFFF", bg="#000315")
+    menu_text = tk.Label(root, text="Jogo da Senha", font=("Times New Roman", 30), fg="#470064", bg="#7D5B8C")
     menu_text.pack(pady=(20, 0))
 
-    chosen_colors_canvas = tk.Canvas(root, bg="#000315", width=NUM_CORES_SENHA * 40, height=40)
+    chosen_colors_canvas = tk.Canvas(root, bg="#7D5B8C", width=NUM_CORES_SENHA * 40, height=40)
     chosen_colors_canvas.pack(side=tk.TOP)
 
     # historico com espaço para botar as dicas
-    historico_canvas = tk.Canvas(root, bg="#000315", width=NUM_CORES_SENHA*80, height=tentativas_restantes*40)
+    historico_canvas = tk.Canvas(root, bg="#7D5B8C", width=NUM_CORES_SENHA*80, height=tentativas_restantes*40)
     historico_canvas.pack(side=tk.TOP)
 
-    tentativas_label = tk.Label(root, bg="#000315", fg='white', text="Tentativas restantes: 7")
+    tentativas_label = tk.Label(root, bg="#7D5B8C", fg='black', text="Tentativas restantes: 7")
     tentativas_label.pack()
 
     for cor in cores_disponiveis:  # Alterado para usar cores_disponiveis
         cor_button = tk.Button(root, bg=cor, width=10, height=2, command=lambda c=cor: botao_cor_clicado(c))
         cor_button.pack(side=tk.LEFT, padx=5, pady=5)
 
-    reiniciar_button = tk.Button(root, bg='#000315', fg='white', text='Reiniciar', command=reiniciar_jogo)
+    reiniciar_button = tk.Button(root, bg='#B19CD9', fg='black', text='Reiniciar', command=reiniciar_jogo)
     reiniciar_button.pack(side=tk.RIGHT, padx=5)
 
-    resetar_button = tk.Button(root, bg="#000315", fg='white', text="Resetar", command=resetar_sequencia)
+    resetar_button = tk.Button(root, bg="#B19CD9", fg='black', text="Resetar", command=resetar_sequencia)
     resetar_button.pack(side=tk.RIGHT, padx=5)
 
-    deletar_button = tk.Button(root, bg="#000315", fg='white', text="Deletar", command=deletar_cor)
+    deletar_button = tk.Button(root, bg="#B19CD9", fg='black', text="Deletar", command=deletar_cor)
     deletar_button.pack(side=tk.RIGHT, padx=5)
 
-    enviar_button = tk.Button(root, bg="#000315", fg='white', text="Enviar", command=enviar_sequencia)
+    enviar_button = tk.Button(root, bg="#B19CD9", fg='black', text="Enviar", command=enviar_sequencia)
     enviar_button.pack(side=tk.RIGHT, padx=5)
+
+    sair_button = tk.Button(root, bg="#B19CD9", fg='black', text="Sair da Partida", command=lambda: sair_partida(root))
+    sair_button.pack(side=tk.BOTTOM)
 
     sequencia_correta = gerar_senha(NUM_CORES_SENHA, cores_disponiveis)
 
