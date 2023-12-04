@@ -1,5 +1,5 @@
 import tkinter as tk
-from botao import iniciar_jogo
+from partida import iniciar_jogo
 from tutorial import criar_tutorial
 #TODO: implementar botao para ir no tutorial 
 def criar_menu():
