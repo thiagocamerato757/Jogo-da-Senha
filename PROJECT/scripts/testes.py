@@ -55,7 +55,7 @@ class TestMenuPrincipal(unittest.TestCase):
         criar_menu()
 
         mock_tk.assert_called()
-        mock_label.assert_called_with(mock_tk_instance, text="Jogo da Senha", font=("Times New Roman", 60), fg="#00FFFF", bg="#000315")
+        mock_label.assert_called_with(mock_tk_instance, text="Jogo da Senha", font=("Times New Roman", 60), fg="#470064", bg="#7D5B8C")
 
 class TestBotoes(unittest.TestCase):
     def setUp(self):
