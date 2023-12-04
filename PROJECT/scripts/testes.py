@@ -3,9 +3,7 @@ from unittest.mock import MagicMock, patch
 from tutorial import criar_tutorial
 from menu import criar_menu
 from senha import gerar_senha
-from botao import botao_cor_clicado,deletar_cor,resetar_sequencia
-
-
+from partida import botao_cor_clicado,deletar_cor,resetar_sequencia
 
 #TODO: colocar os demais testes aqui
 
